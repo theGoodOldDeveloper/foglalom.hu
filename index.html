@@ -14,44 +14,66 @@
             </div>
             <h1 class="main-title" id="mainTitle">Hello World!</h1>
             <p class="subtitle">Üdvözöljük a The Good Old Developer világában!</p>
+            <p class="subtitle-secondary">Segítek, hogy több ügyfeled legyen kevesebb szervezéssel.</p>
         </header>
 
         <main class="main-content">
             <section class="welcome-section">
                 <div class="content-box">
                     <h2>Miért válasszon minket?</h2>
-                    <p>Tapasztalt fejlesztői csapatunk kreatív megoldásokat kínál minden projektjére. Modern technológiákkal, szakértelmünkkel és szenvedélyünkkel állunk a rendelkezésére.</p>
+                    <p>25 év fejlesztői tapasztalattal a hátam mögött kreatív és gyors megoldásokat kínálok minden projektedre. Nem csak kódot írok, hanem üzleti problémákat oldok meg modern technológiákkal és egy csipet humorral. 🤓</p>
                     
                     <div class="features">
                         <div class="feature-card">
                             <div class="feature-icon">🚀</div>
-                            <h3>Gyors fejlesztés</h3>
-                            <p>Hatékony és gyors megoldások minden igényre</p>
+                            <h3>Villámgyors fejlesztés</h3>
+                            <p>Míg mások tervezgetnek, én már kódolok. 48 óra alatt kész a prototípus, 2 hét alatt a teljes rendszer!</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">💡</div>
                             <h3>Kreatív megoldások</h3>
-                            <p>Innovatív gondolkodás és egyedi megközelítés</p>
+                            <p>Nem csak "működik", hanem "wow, ezt hogy csináltad?" reakciókat vált ki. Minden projekt egyedi, mint a te üzleted!</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">🔧</div>
-                            <h3>Megbízható szolgáltatás</h3>
-                            <p>Professzionális minőség és időbeni teljesítés</p>
+                            <h3>Megbízható partner</h3>
+                            <p>Ha ígérem, hogy szerdán kész, akkor szerdán kész. És még előtte is szólok, ha valami hiba van. Transzparens vagyok, mint a kód!</p>
                         </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section class="consultation-section">
+                <div class="content-box">
+                    <div class="consultation-cta">
+                        <p class="cta-text">👉 <strong>Foglalj most egy ingyenes 15 perces konzultációt!</strong></p>
+                        <button class="btn btn-primary" id="consultationBtn">Konzultáció foglalása</button>
+                        <button class="btn btn-secondary" id="serviceModalBtn">Nézd meg, mennyire baráti az ár! 👀</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="booking-section">
+                <div class="content-box">
+                    <h3>Vagy foglalj közvetlenül itt:</h3>
+                    <div class="iframe-container">
+                        <iframe 
+                            src="https://easyappointments.thegoodolddeveloper.cloud/index.php/?provider=9&service=4" 
+                            width="100%" 
+                            height="600" 
+                            frameborder="0"
+                            title="Időpontfoglaló rendszer">
+                        </iframe>
                     </div>
                 </div>
             </section>
 
             <section class="interactive-section">
                 <div class="demo-area">
-                    <h3>Interaktív demó terület</h3>
                     <div class="button-group">
                         <button class="btn btn-primary" id="colorBtn">Színek váltása</button>
-                        <button class="btn btn-secondary" id="textBtn">Szöveg animáció</button>
                         <button class="btn btn-accent" id="particleBtn">Részecske effekt</button>
-                    </div>
-                    <div class="demo-display" id="demoDisplay">
-                        <p>Nyomj meg egy gombot a hatás megtekintéséhez!</p>
                     </div>
                 </div>
             </section>
@@ -59,7 +81,7 @@
             <section class="stats-section">
                 <div class="stats-container">
                     <div class="stat-item">
-                        <span class="stat-number" data-target="150">0</span>
+                        <span class="stat-number" data-target="250">0</span>
                         <span class="stat-label">Elkészült projekt</span>
                     </div>
                     <div class="stat-item">
@@ -69,6 +91,10 @@
                     <div class="stat-item">
                         <span class="stat-number" data-target="99">0</span>
                         <span class="stat-label">% elégedettség</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="100">0</span>
+                        <span class="stat-label">% humor az adagban</span>
                     </div>
                 </div>
             </section>
@@ -92,10 +118,84 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 The Good Old Developer. Minden jog fenntartva.</p>
+                    <p>&copy; 2025 The Good Old Developer. Minden jog fenntartva. Minden sor kód mögött egy kávé ☕</p>
                 </div>
             </div>
         </footer>
+    </div>
+
+    <!-- Szolgáltatások Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Mit kapsz a pénzedért? 💰</h2>
+            
+            <div class="service-intro">
+                <p>A Foglalom.eu szolgáltatással nem csak egy időpontfoglaló rendszert kapsz, hanem egy komplett digitális megoldást a vállalkozásodhoz!</p>
+            </div>
+            
+            <div class="service-features">
+                <h3>🎯 Amit minden csomagban kapsz:</h3>
+                <ul>
+                    <li>✅ Saját aldomain (pl. foglalas.azugyfeleseged.hu)</li>
+                    <li>✅ Mini landing page (mint ez itt, csak a te stílusodban)</li>
+                    <li>✅ Online időpontfoglaló rendszer</li>
+                    <li>✅ Email értesítések automatikusan</li>
+                    <li>✅ Mobilbarát design</li>
+                    <li>✅ 24/7 működés</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h4>Statikus</h4>
+                    <div class="price">25.000 Ft/hó</div>
+                    <ul>
+                        <li>Alapfunkciók</li>
+                        <li>1 szolgáltatás</li>
+                        <li>Email támogatás</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h4>Asszisztens</h4>
+                    <div class="price">45.000 Ft/hó</div>
+                    <ul>
+                        <li>Minden az előzőből</li>
+                        <li>3 szolgáltatás</li>
+                        <li>WhatsApp értesítések</li>
+                        <li>Telefon támogatás</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card">
+                    <h4>Supervisor</h4>
+                    <div class="price">75.000 Ft/hó</div>
+                    <ul>
+                        <li>Minden az előzőből</li>
+                        <li>Korlátlan szolgáltatás</li>
+                        <li>Ügyfél adatbázis</li>
+                        <li>Statisztikák</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card">
+                    <h4>Enterprise</h4>
+                    <div class="price">Egyedi árazás</div>
+                    <ul>
+                        <li>Minden az előzőből</li>
+                        <li>Egyedi fejlesztések</li>
+                        <li>API integrációk</li>
+                        <li>Dedikált támogatás</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="modal-cta">
+                <button class="btn btn-primary" id="modalConsultationBtn">Foglalok konzultációt</button>
+                <p class="cta-note">Ingyenes 15 perces beszélgetés, hogy pontosan azt kapd, amire szükséged van!</p>
+            </div>
+        </div>
     </div>
 
     <div id="particles"></div>

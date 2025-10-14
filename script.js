@@ -1,10 +1,15 @@
 // DOM elemek lekérése
 const colorBtn = document.getElementById('colorBtn');
-const textBtn = document.getElementById('textBtn');
 const particleBtn = document.getElementById('particleBtn');
-const demoDisplay = document.getElementById('demoDisplay');
 const mainTitle = document.getElementById('mainTitle');
 const particlesContainer = document.getElementById('particles');
+
+// Modal elemek
+const serviceModal = document.getElementById('serviceModal');
+const serviceModalBtn = document.getElementById('serviceModalBtn');
+const consultationBtn = document.getElementById('consultationBtn');
+const modalConsultationBtn = document.getElementById('modalConsultationBtn');
+const closeModal = document.querySelector('.close');
 
 // Színek tömbje a háttér változtatáshoz
 const colors = [
@@ -32,60 +37,15 @@ colorBtn.addEventListener('click', function() {
     currentColorIndex = (currentColorIndex + 1) % colors.length;
     document.body.style.background = colors[currentColorIndex];
     
-    // Demo terület animációja
-    demoDisplay.style.background = 'rgba(255, 255, 255, 0.1)';
-    demoDisplay.style.transform = 'scale(1.05)';
-    demoDisplay.innerHTML = `
-        <div style="color: white; font-weight: bold; font-size: 1.2rem;">
-            🎨 Színek váltva!<br>
-            <small>Új háttér: ${currentColorIndex + 1}/${colors.length}</small>
-        </div>
-    `;
-    
+    // Gomb animáció
+    colorBtn.style.transform = 'scale(0.95)';
     setTimeout(() => {
-        demoDisplay.style.transform = 'scale(1)';
+        colorBtn.style.transform = 'scale(1)';
         isAnimating = false;
         colorBtn.disabled = false;
     }, 1000);
 });
 
-// Szöveg animáció gomb eseménye
-textBtn.addEventListener('click', function() {
-    if (isAnimating) return;
-    
-    isAnimating = true;
-    textBtn.disabled = true;
-    
-    // Főcím animációja
-    mainTitle.style.animation = 'textWave 0.8s ease-in-out';
-    
-    // Demo terület változtatása
-    const messages = [
-        '✨ Hello World animálva!',
-        '🚀 Szöveg hullámozik!',
-        '💫 Dinamikus effekt!',
-        '🎯 Interaktív élmény!',
-        '🌟 Fantasztikus animáció!'
-    ];
-    
-    let messageIndex = 0;
-    const messageInterval = setInterval(() => {
-        demoDisplay.innerHTML = `
-            <div style="color: #333; font-weight: bold; font-size: 1.3rem; animation: fadeInUp 0.5s ease-out;">
-                ${messages[messageIndex]}
-            </div>
-        `;
-        messageIndex = (messageIndex + 1) % messages.length;
-    }, 200);
-    
-    setTimeout(() => {
-        clearInterval(messageInterval);
-        mainTitle.style.animation = '';
-        demoDisplay.innerHTML = '<p>Animáció befejezve! Próbáld ki a többi gombot is!</p>';
-        isAnimating = false;
-        textBtn.disabled = false;
-    }, 3000);
-});
 
 // Részecske effekt gomb eseménye
 particleBtn.addEventListener('click', function() {
@@ -94,21 +54,16 @@ particleBtn.addEventListener('click', function() {
     isAnimating = true;
     particleBtn.disabled = true;
     
-    // Demo terület üzenet
-    demoDisplay.innerHTML = `
-        <div style="color: #333; font-weight: bold; font-size: 1.2rem;">
-            ✨ Részecske effekt indítása...<br>
-            <small>Nézd a képernyőt!</small>
-        </div>
-    `;
+    // Gomb animáció
+    particleBtn.style.transform = 'scale(0.95)';
     
     // Részecskék létrehozása
     createParticles();
     
     setTimeout(() => {
+        particleBtn.style.transform = 'scale(1)';
         isAnimating = false;
         particleBtn.disabled = false;
-        demoDisplay.innerHTML = '<p>Részecske show befejezve! 🎆</p>';
     }, 4000);
 });
 
@@ -217,6 +172,60 @@ if (logo) {
     
     logo.addEventListener('mouseleave', function() {
         this.style.transform = 'scale(1) rotate(0deg)';
+    });
+}
+
+// Modal működés
+function openModal() {
+    serviceModal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Scroll letiltása
+}
+
+function closeModalFunc() {
+    serviceModal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Scroll visszaengedése
+}
+
+// Modal eseménykezelők
+if (serviceModalBtn) {
+    serviceModalBtn.addEventListener('click', openModal);
+}
+
+if (closeModal) {
+    closeModal.addEventListener('click', closeModalFunc);
+}
+
+// Modal bezárása a háttérre kattintva
+window.addEventListener('click', function(event) {
+    if (event.target === serviceModal) {
+        closeModalFunc();
+    }
+});
+
+// ESC billentyű modal bezárásához
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && serviceModal.style.display === 'block') {
+        closeModalFunc();
+    }
+});
+
+// Konzultáció gombok eseménykezelője
+function handleConsultationClick() {
+    // EasyAppointments link megnyitása új ablakban
+    window.open('https://easyappointments.thegoodolddeveloper.cloud/index.php/?provider=9&service=4', '_blank');
+}
+
+if (consultationBtn) {
+    consultationBtn.addEventListener('click', handleConsultationClick);
+}
+
+if (modalConsultationBtn) {
+    modalConsultationBtn.addEventListener('click', function() {
+        // Modal bezárása és konzultáció link megnyitása
+        closeModalFunc();
+        setTimeout(() => {
+            window.open('https://easyappointments.thegoodolddeveloper.cloud/index.php/?provider=9&service=4', '_blank');
+        }, 300);
     });
 }
 
