@@ -8,8 +8,15 @@ const particlesContainer = document.getElementById('particles');
 const serviceModal = document.getElementById('serviceModal');
 const serviceModalBtn = document.getElementById('serviceModalBtn');
 const consultationBtn = document.getElementById('consultationBtn');
-const modalConsultationBtn = document.getElementById('modalConsultationBtn');
 const closeModal = document.querySelector('.close');
+
+// Új modal elemek
+const toggleButtons = document.querySelectorAll('.toggle-btn');
+const monthlyPrices = document.querySelectorAll('.monthly-price');
+const yearlyPrices = document.querySelectorAll('.yearly-price');
+const monthlyPeriods = document.querySelectorAll('.monthly-period');
+const yearlyPeriods = document.querySelectorAll('.yearly-period');
+const cardButtons = document.querySelectorAll('.card-btn');
 
 // Színek tömbje a háttér változtatáshoz
 const colors = [
@@ -223,6 +230,35 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// Pricing toggle funkcionalitás
+function handleToggleClick(event) {
+    const clickedPeriod = event.target.getAttribute('data-period');
+    
+    // Toggle gombok állapotának frissítése
+    toggleButtons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Árak és periódusok megjelenítése/elrejtése
+    if (clickedPeriod === 'monthly') {
+        monthlyPrices.forEach(price => price.style.display = 'block');
+        yearlyPrices.forEach(price => price.style.display = 'none');
+        monthlyPeriods.forEach(period => period.style.display = 'block');
+        yearlyPeriods.forEach(period => period.style.display = 'none');
+    } else {
+        monthlyPrices.forEach(price => price.style.display = 'none');
+        yearlyPrices.forEach(price => price.style.display = 'block');
+        monthlyPeriods.forEach(period => period.style.display = 'none');
+        yearlyPeriods.forEach(period => period.style.display = 'block');
+    }
+}
+
+// Toggle gombok eseménykezelője
+toggleButtons.forEach(btn => {
+    btn.addEventListener('click', handleToggleClick);
+});
+
 // Konzultáció gombok eseménykezelője
 function handleConsultationClick() {
     // EasyAppointments link megnyitása új ablakban
@@ -233,15 +269,16 @@ if (consultationBtn) {
     consultationBtn.addEventListener('click', handleConsultationClick);
 }
 
-if (modalConsultationBtn) {
-    modalConsultationBtn.addEventListener('click', function() {
+// Új modal gombok eseménykezelője
+cardButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
         // Modal bezárása és konzultáció link megnyitása
         closeModalFunc();
         setTimeout(() => {
             window.open('https://easyappointments.thegoodolddeveloper.cloud/index.php/?provider=9&service=4', '_blank');
         }, 300);
     });
-}
+});
 
 // Konzol üzenet
 console.log('🚀 The Good Old Developer - Hello World oldal betöltve!');

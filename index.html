@@ -54,7 +54,7 @@
                             <p>Nem kell havi díjakat fizetned, nincsenek rejtett költségek. A MiniFoglaló csomag egyszeri díja mindent tartalmaz, amire szükséged van: saját domainnév, saját landing oldal és tárhely – mind benne van az árban! Ez azt jelenti, hogy nem csak egy szoftvert kapsz, hanem egy kész, működő online foglalórendszert, ami a nevedhez kötődik.</p>
                         </div>
                         
-                        <div class="reason-item">
+                        <div class="reason-item highlighted-offer">
                             <h3>2️⃣ Hozz magaddal még egy ügyfelet, és mindketten féláron kaptok belépőt! 🎉</h3>
                             <p>Ez a „Hozz még egy ügyfelet → félár mindkettőtöknek!" akció kifejezetten azoknak szól, akik baráttal, kollégával, edzőtárssal vagy más vállalkozóval együtt indulnának. Ketten együtt még kedvezőbben juthattok hozzá a MiniFoglalóhoz, így nemcsak pénzt spóroltok, hanem közösen építitek az online jelenléteteket is.</p>
                         </div>
@@ -201,72 +201,88 @@
     <div id="serviceModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Mit kapsz a pénzedért? 💰</h2>
             
-            <div class="service-intro">
-                <p>A Foglalom.eu szolgáltatással nem csak egy időpontfoglaló rendszert kapsz, hanem egy komplett digitális megoldást a vállalkozásodhoz!</p>
+            <!-- Promotional Banner -->
+            <div class="promo-banner">
+                <span class="promo-icon">👥</span>
+                <span class="promo-text">Hozz még egy ügyfelet → félár mindkettőtöknek a MiniFoglalóra!</span>
             </div>
             
-            <div class="service-features">
-                <h3>🎯 Amit minden csomagban kapsz:</h3>
-                <ul>
-                    <li>✅ Saját aldomain (pl. foglalas.azugyfeleseged.hu)</li>
-                    <li>✅ Mini landing page (mint ez itt, csak a te stílusodban)</li>
-                    <li>✅ Online időpontfoglaló rendszer</li>
-                    <li>✅ Email értesítések automatikusan</li>
-                    <li>✅ Mobilbarát design</li>
-                    <li>✅ 24/7 működés</li>
-                </ul>
+            <!-- Pricing Toggle -->
+            <div class="pricing-toggle">
+                <button class="toggle-btn active" data-period="monthly">Havi</button>
+                <button class="toggle-btn" data-period="yearly">Éves</button>
             </div>
             
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h4>Statikus</h4>
-                    <div class="price">25.000 Ft/hó</div>
-                    <ul>
-                        <li>Alapfunkciók</li>
-                        <li>1 szolgáltatás</li>
-                        <li>Email támogatás</li>
+            <!-- Pricing Cards -->
+            <div class="pricing-cards-container">
+                <!-- MiniFoglaló Card -->
+                <div class="pricing-card-new mini-card">
+                    <div class="card-badge">Belépő</div>
+                    <div class="card-icon">📅</div>
+                    <h3 class="card-title">MiniFoglaló</h3>
+                    <p class="card-description">Egyszeri díjas belépő - tanároknak, terapeutáknak</p>
+                    <div class="card-price">
+                        <span class="price-amount">14 900 Ft</span>
+                        <span class="price-period">egyszeri díj</span>
+                    </div>
+                    <ul class="card-features">
+                        <li>✅ Saját landingpage + aldomain (név.foglalom.eu)</li>
+                        <li>✅ 1 szolgáltatás, 1 idősáv</li>
+                        <li>✅ Email értesítések</li>
+                        <li>✅ Módosítás alkalmanként: 3-5 000 Ft</li>
                     </ul>
+                    <button class="card-btn mini-btn" data-service="mini">Foglalok időpontot →</button>
+                    <p class="card-note">* Módosítási díj típustól függően 3-5 000 Ft/alkalom. Később bármikor válthatsz Pro/Super csomagra.</p>
                 </div>
                 
-                <div class="pricing-card featured">
-                    <h4>Asszisztens</h4>
-                    <div class="price">45.000 Ft/hó</div>
-                    <ul>
-                        <li>Minden az előzőből</li>
-                        <li>3 szolgáltatás</li>
-                        <li>WhatsApp értesítések</li>
-                        <li>Telefon támogatás</li>
+                <!-- ProFoglaló Card -->
+                <div class="pricing-card-new pro-card featured">
+                    <div class="card-badge popular">Legnépszerűbb</div>
+                    <div class="card-icon">👥</div>
+                    <h3 class="card-title">ProFoglaló</h3>
+                    <p class="card-description">Több szolgáltatás, profiknak - szalonoknak, edzőknek</p>
+                    <div class="card-price">
+                        <span class="price-amount monthly-price">4 900 Ft/hó</span>
+                        <span class="price-amount yearly-price" style="display: none;">49 000 Ft/év</span>
+                        <span class="price-period monthly-period">havi előfizetés</span>
+                        <span class="price-period yearly-period" style="display: none;">2 hónap ajándék</span>
+                    </div>
+                    <ul class="card-features">
+                        <li>✅ 2-5 szolgáltatás, heti többsávos beosztás</li>
+                        <li>✅ 3x/hó ingyen módosítás</li>
+                        <li>✅ Landing frissítések</li>
+                        <li>✅ Email support 24-48h válaszidő</li>
                     </ul>
+                    <button class="card-btn pro-btn" data-service="pro">Foglalok időpontot →</button>
                 </div>
                 
-                <div class="pricing-card">
-                    <h4>Supervisor</h4>
-                    <div class="price">75.000 Ft/hó</div>
-                    <ul>
-                        <li>Minden az előzőből</li>
-                        <li>Korlátlan szolgáltatás</li>
-                        <li>Ügyfél adatbázis</li>
-                        <li>Statisztikák</li>
+                <!-- SuperFoglaló Card -->
+                <div class="pricing-card-new super-card">
+                    <div class="card-badge">Unlimited</div>
+                    <div class="card-icon">🚀</div>
+                    <h3 class="card-title">SuperFoglaló</h3>
+                    <p class="card-description">Korlátlan minden + prioritásos támogatás</p>
+                    <div class="card-price">
+                        <span class="price-amount monthly-price">9 900 Ft/hó</span>
+                        <span class="price-amount yearly-price" style="display: none;">89 900 Ft/év</span>
+                        <span class="price-period monthly-period">havi/éves előfizetés</span>
+                        <span class="price-period yearly-period" style="display: none;">2 hónap ajándék</span>
+                    </div>
+                    <ul class="card-features">
+                        <li>✅ Korlátlan szolgáltatás + időpont</li>
+                        <li>✅ Prioritásos support</li>
+                        <li>✅ Google Calendar szinkron</li>
+                        <li>✅ Egyedi domain (opcionális)</li>
                     </ul>
-                </div>
-                
-                <div class="pricing-card">
-                    <h4>Enterprise</h4>
-                    <div class="price">Egyedi árazás</div>
-                    <ul>
-                        <li>Minden az előzőből</li>
-                        <li>Egyedi fejlesztések</li>
-                        <li>API integrációk</li>
-                        <li>Dedikált támogatás</li>
-                    </ul>
+                    <button class="card-btn super-btn" data-service="super">Foglalok időpontot →</button>
+                    <p class="card-note-disabled">Korlátlan szolgáltatás & módosítás</p>
                 </div>
             </div>
             
-            <div class="modal-cta">
-                <button class="btn btn-primary" id="modalConsultationBtn">Foglalok konzultációt</button>
-                <p class="cta-note">Ingyenes 15 perces beszélgetés, hogy pontosan azt kapd, amire szükséged van!</p>
+            <!-- Bottom Disclaimer -->
+            <div class="modal-disclaimer">
+                <p>Nincs hűségidő. Bármikor válthatsz csomagot. Éves előfizetésnél 2 hónapot ajándékba adunk.</p>
             </div>
         </div>
     </div>
