@@ -1051,6 +1051,38 @@ body {
     margin-bottom: 15px;
 }
 
+/* Email CTA stílusok - most már a cta-text-ben van */
+.cta-text a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.cta-text a:hover {
+    color: #4ecdc4;
+    text-decoration: underline;
+}
+
+.email-cta-card {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+    margin: 10px 0 0 0;
+}
+
+.email-cta-card a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.email-cta-card a:hover {
+    color: #4ecdc4;
+    text-decoration: underline;
+}
+
 /* Booking section stílusok */
 .booking-section {
     margin: 40px 0;
