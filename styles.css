@@ -469,15 +469,28 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .promo-icon {
     font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
 .promo-text {
     font-size: 1rem;
     font-weight: 500;
+    line-height: 1.3;
+    flex: 1;
+    min-width: 0;
+}
+
+.desktop-text {
+    display: inline;
+}
+
+.mobile-text {
+    display: none;
 }
 
 /* Pricing Toggle */
@@ -1249,7 +1262,26 @@ body {
     
     .promo-banner {
         padding: 12px 15px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .promo-text {
         font-size: 0.9rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+    
+    .promo-icon {
+        font-size: 1rem;
+    }
+    
+    .desktop-text {
+        display: none;
+    }
+    
+    .mobile-text {
+        display: inline;
     }
     
     .pricing-toggle {
