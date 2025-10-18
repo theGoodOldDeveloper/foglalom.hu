@@ -26,6 +26,16 @@ const colors = [
 let currentColorIndex = 0;
 let isAnimating = false;
 
+// Színek betöltése localStorage-ból
+function loadSavedColor() {
+    const savedColorIndex = localStorage.getItem('selectedColorIndex');
+    if (savedColorIndex !== null) {
+        currentColorIndex = parseInt(savedColorIndex);
+        document.body.style.background = colors[currentColorIndex];
+        console.log(`🎨 Mentett szín betöltve: ${currentColorIndex + 1}/${colors.length}`);
+    }
+}
+
 // Színek váltása gomb eseménye
 colorBtn.addEventListener('click', function() {
     if (isAnimating) return;
@@ -36,6 +46,10 @@ colorBtn.addEventListener('click', function() {
     // Háttér szín váltása
     currentColorIndex = (currentColorIndex + 1) % colors.length;
     document.body.style.background = colors[currentColorIndex];
+    
+    // Szín mentése localStorage-ba
+    localStorage.setItem('selectedColorIndex', currentColorIndex);
+    console.log(`💾 Szín elmentve: ${currentColorIndex + 1}/${colors.length}`);
     
     // Gomb animáció
     colorBtn.style.transform = 'scale(0.95)';
@@ -236,6 +250,9 @@ console.log('📧 Kapcsolat: thegoodolddeveloper@gmail.com');
 
 // Oldal betöltésekor indított animációk
 window.addEventListener('load', () => {
+    // Mentett szín betöltése
+    loadSavedColor();
+    
     // Kis késleltetés után indítjuk a statisztikák animációját
     setTimeout(() => {
         const statsVisible = document.querySelector('.stats-section').getBoundingClientRect().top < window.innerHeight;
