@@ -8,7 +8,8 @@ const particlesContainer = document.getElementById('particles');
 const serviceModal = document.getElementById('serviceModal');
 const serviceModalBtn = document.getElementById('serviceModalBtn');
 const consultationBtn = document.getElementById('consultationBtn');
-const closeModal = document.querySelector('.close');
+const closeModalIcon = document.querySelector('.close');
+const modalContent = document.querySelector('#serviceModal .modal-content');
 
 // Új modal elemek
 const toggleButtons = document.querySelectorAll('.toggle-btn');
@@ -202,6 +203,41 @@ function openModal() {
     document.body.style.overflow = 'hidden'; // Scroll letiltása
 }
 
+// Pricing összefoglaló kártyák (CTA szekció)
+const summaryPlanCards = document.querySelectorAll('.pricing-cards .pricing-card-item');
+
+function showAllPlansInModal() {
+    document.querySelectorAll('.pricing-card-new').forEach(card => {
+        card.style.display = '';
+    });
+    if (modalContent) {
+        modalContent.classList.remove('narrow');
+    }
+}
+
+function showOnlyPlanInModal(planKey) {
+    const planClassMap = {
+        mini: '.mini-card',
+        pro: '.pro-card',
+        super: '.super-card'
+    };
+    const selectorToShow = planClassMap[planKey];
+    if (!selectorToShow) {
+        showAllPlansInModal();
+        return;
+    }
+    document.querySelectorAll('.pricing-card-new').forEach(card => {
+        card.style.display = 'none';
+    });
+    const target = document.querySelector(selectorToShow);
+    if (target) {
+        target.style.display = '';
+    }
+    if (modalContent) {
+        modalContent.classList.add('narrow');
+    }
+}
+
 function closeModalFunc() {
     serviceModal.style.display = 'none';
     document.body.style.overflow = 'auto'; // Scroll visszaengedése
@@ -209,12 +245,16 @@ function closeModalFunc() {
 
 // Modal eseménykezelők
 if (serviceModalBtn) {
-    serviceModalBtn.addEventListener('click', openModal);
+    serviceModalBtn.addEventListener('click', () => {
+        showAllPlansInModal();
+        openModal();
+    });
 }
 
-if (closeModal) {
-    closeModal.addEventListener('click', closeModalFunc);
-}
+// Bind all close triggers: top-right X and any element with data-close-modal
+document.querySelectorAll('.close, [data-close-modal]').forEach(el => {
+    el.addEventListener('click', closeModalFunc);
+});
 
 // Modal bezárása a háttérre kattintva
 window.addEventListener('click', function(event) {
@@ -277,6 +317,15 @@ cardButtons.forEach(btn => {
         setTimeout(() => {
             window.open('https://easyappointments.thegoodolddeveloper.cloud/index.php/?provider=9&service=4', '_blank');
         }, 300);
+    });
+});
+
+// Összefoglaló kártyák kattintása: csak a saját csomag jelenjen meg a modalban
+summaryPlanCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const planKey = card.getAttribute('data-plan');
+        showOnlyPlanInModal(planKey);
+        openModal();
     });
 });
 

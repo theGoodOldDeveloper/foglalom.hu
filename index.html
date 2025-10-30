@@ -102,15 +102,15 @@
                         <button class="btn btn-primary" id="consultationBtn">Konzultáció foglalása</button>
                         
                         <div class="pricing-cards">
-                            <div class="pricing-card-item">
+                            <div class="pricing-card-item" data-plan="mini">
                                 <h4>MiniFoglaló</h4>
                                 <p>Egyszer fizetsz – domain + landing + tárhely benne van.</p>
                             </div>
-                            <div class="pricing-card-item">
+                            <div class="pricing-card-item" data-plan="pro">
                                 <h4>ProFoglaló</h4>
                                 <p>2 vagy több szolgáltatás + havi/éves díj – landing, domain, tárhely jár.</p>
                             </div>
-                            <div class="pricing-card-item">
+                            <div class="pricing-card-item" data-plan="super">
                                 <h4>SuperFoglaló</h4>
                                 <p>Korlátlan szolgáltatás + prioritás – landing, domain, tárhely jár.</p>
                             </div>
@@ -207,8 +207,8 @@
             <div class="promo-banner">
                 <span class="promo-icon">👥</span>
                 <span class="promo-text">
-                    <span class="desktop-text">Hozz még egy ügyfelet → félár mindkettőtöknek a MiniFoglalóra!</span>
-                    <span class="mobile-text">Hozz még egy ügyfelet → félár mindkettőtöknek!</span>
+                        <span class="desktop-text" style="color:#8b5cf6; font-size: 1.35em;">Hozz még egy ügyfelet → félár mindkettőtöknek a MiniFoglalóra!</span>
+                    <span class="mobile-text" style="color:#8b5cf6; font-size: 1.35em;">Hozz még egy ügyfelet → félár mindkettőtöknek!</span>
                 </span>
             </div>
             
@@ -227,7 +227,7 @@
                     <h3 class="card-title">MiniFoglaló</h3>
                     <p class="card-description">Egyszeri díjas belépő - tanároknak, terapeutáknak</p>
                     <div class="card-price">
-                        <span class="price-amount">14 900 Ft</span>
+                        <span class="price-amount">12 900 Ft</span>
                         <span class="price-period">egyszeri díj</span>
                     </div>
                     <ul class="card-features">
@@ -235,7 +235,7 @@
                         <li>✅ 1 szolgáltatás, 1 idősáv</li>
                         <li>✅ Email értesítések</li>
                         <li>✅ Módosítás alkalmanként: 3–5 000 Ft</li>
-                        <li>🎉 Ajánlat: Hozz még egy ügyfelet → félár mindkettőtöknek!</li>
+                        <li><strong>🎉 Ajánlat: Hozz még egy ügyfelet → félár mindkettőtöknek!</strong></li>
                         <li>🔄 Upgrade-garancia: fél éven belüli éves Pro/Super váltásnál a Mini díja levonásra kerül az első éves díjból</li>
                     </ul>
                     <button class="card-btn mini-btn" data-service="mini">Foglalok időpontot →</button>
@@ -249,8 +249,8 @@
                     <h3 class="card-title">ProFoglaló</h3>
                     <p class="card-description">Több szolgáltatás, profiknak - szalonoknak, edzőknek</p>
                     <div class="card-price">
-                        <span class="price-amount monthly-price">4 900 Ft/hó</span>
-                        <span class="price-amount yearly-price" style="display: none;">49 000 Ft/év</span>
+                        <span class="price-amount monthly-price">3 700 Ft/hó</span>
+                        <span class="price-amount yearly-price" style="display: none;">39 900 Ft/év</span>
                         <span class="price-period monthly-period">havi előfizetés</span>
                         <span class="price-period yearly-period" style="display: none;">2 hónap ajándék</span>
                     </div>
@@ -260,6 +260,7 @@
                         <li>✅ Landing frissítések</li>
                         <li>✅ Email support 24–48h válaszidő</li>
                         <li>✅ Domain + landing + tárhely benne van</li>
+                        <li>ℹ️ Opcionális (kis) <strong>egyedi domain</strong>: + <strong>15 000 Ft/év</strong> (DNS + SSL + admin)</li>
                     </ul>
                     <button class="card-btn pro-btn" data-service="pro">Foglalok időpontot →</button>
                     <p class="email-cta-card">📧 Vagy <a href="mailto:thegoodolddeveloper@gmail.com">dobj egy emailt</a>!</p>
@@ -270,14 +271,15 @@
                     <div class="card-badge">Unlimited</div>
                     <div class="card-icon">🚀</div>
                     <h3 class="card-title">SuperFoglaló</h3>
-                    <p class="card-description">Korlátlan minden + prioritásos támogatás</p>
+                    <p class="card-description">Korlátlan minden + prioritásos támogatás Elszigetelt rendszer</p>
                     <div class="card-price">
-                        <span class="price-amount monthly-price">9 900 Ft/hó</span>
-                        <span class="price-amount yearly-price" style="display: none;">89 900 Ft/év</span>
+                        <span class="price-amount monthly-price">8 900 Ft/hó</span>
+                        <span class="price-amount yearly-price" style="display: none;">89 000 Ft/év</span>
                         <span class="price-period monthly-period">havi/éves előfizetés</span>
                         <span class="price-period yearly-period" style="display: none;">2 hónap ajándék</span>
                     </div>
                     <ul class="card-features">
+                        <li>➕ Egyszeri 19 000 Ft beállítás (konténer-provízionálás, SSL, monitoring)</li>
                         <li>✅ Korlátlan szolgáltatás + időpont</li>
                         <li>✅ Prioritásos support</li>
                         <li>✅ Google Calendar szinkron</li>
@@ -292,6 +294,10 @@
             <!-- Bottom Disclaimer -->
             <div class="modal-disclaimer">
                 <p>Nincs hűségidő. Bármikor válthatsz csomagot. Éves előfizetésnél 2 hónapot ajándékba adunk.</p>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn btn-secondary" type="button" data-close-modal>Bezár</button>
             </div>
         </div>
     </div>

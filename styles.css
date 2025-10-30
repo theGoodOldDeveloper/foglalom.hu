@@ -425,8 +425,17 @@ body {
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Desktop-only: single-plan modal should be narrower */
+@media (min-width: 1024px) {
+    .modal-content.narrow {
+        max-width: 760px;
+    }
 }
 
 @keyframes modalSlideIn {
@@ -459,7 +468,7 @@ body {
 
 /* Promotional Banner */
 .promo-banner {
-    background: #2d5a2d;
+    background: #f5f5f5;
     color: white;
     padding: 15px 20px;
     border-radius: 10px;
@@ -723,6 +732,13 @@ body {
     font-size: 0.95rem;
     margin: 0;
     line-height: 1.4;
+}
+
+/* Modal actions (bottom aligned close button) */
+.modal-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* Hero CTA stílusok */
